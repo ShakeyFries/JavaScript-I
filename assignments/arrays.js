@@ -97,11 +97,13 @@ let oldCars = inventory.filter(function(currentValue) {
 console.log(oldCars); 
 // ==== Challenge 6 ====
 // A buyer is interested in seeing only BMW and Audi cars within the inventory.  Return an array that only contains BMW and Audi cars.  Once you have populated the BMWAndAudi array, use JSON.stringify() to show the results of the array in the console.
-let BMWAndAudi = inventory.reduce(function(accumulator, currentValue){
-      return (currentValue.car_make < accumulator) ? currentValue.car_make: accumulator;
-  },"Audi", "BMW",);
-console.log(BMWAndAudi);
-
+let BMWAndAudi = [];
+for (let i = 0; i < inventory.length; i++) {
+      if (inventory[i].car_make == "Audi"|| inventory[i].car_make == "BMW"){
+      BMWAndAudi.push(inventory[i].car_make, inventory[i].car_model, inventory[i].car_year)
+  }
+}
+console.log (JSON.stringify (BMWAndAudi));
 // console.log (`I am the accumulator ${accumulator.car_make}`);
 // console.log (`I am the currentValue ${currentValue.car_make}`);
 // return accumulator.car_make + currentValue.carmake;
